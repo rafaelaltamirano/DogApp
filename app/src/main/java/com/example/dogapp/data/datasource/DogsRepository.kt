@@ -10,7 +10,7 @@ class DogsRepository(
     var dogBreed: List<DogBreed>? = emptyList()
         private set
 
-    suspend fun searchImages(text: String) = remote.loadDogs(text).also { save(it) }
+    suspend fun loadDogs() = remote.loadDogs().also { save(it) }
 
     override suspend fun save(t: List<DogBreed>) {
         dogBreed = t
@@ -28,7 +28,7 @@ class DogsRepository(
 
 interface BreedsRemoteSource {
 
-    suspend fun loadDogs(text: String): List<DogBreed>
+    suspend fun loadDogs(): List<DogBreed>
 
 }
 

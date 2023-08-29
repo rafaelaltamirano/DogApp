@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
     id("com.google.devtools.ksp")
 }
 
@@ -81,7 +82,11 @@ dependencies {
 
     //<editor-fold desc="HILT">
     implementation("com.google.dagger:hilt-android:2.44")
-    ksp("com.google.dagger:hilt-android-compiler:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("androidx.hilt:hilt-work:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.work:work-runtime-ktx:2.8.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     //</editor-fold>
 
     //<editor-fold desc="IMAGES">
@@ -91,6 +96,9 @@ dependencies {
     //<editor-fold desc="COROUTINES">
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    //</editor-fold>
+    //<editor-fold desc="VIEW MODEL">
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     //</editor-fold>
 
     //<editor-fold desc="ROOM">
@@ -110,5 +118,13 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     //</editor-fold>
 
+    //<editor-fold desc="NAVIGATION">
+    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    //</editor-fold>
+
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material:material:1.5.0")
 
 }
